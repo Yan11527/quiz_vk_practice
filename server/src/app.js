@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
+const path = require('path');
 
 const { UPLOADS_DIR, corsOptions } = require('./config');
 const { makeAuthMiddleware } = require('./middleware/auth');
@@ -15,6 +16,8 @@ const { createHistoryRouter } = require('./routes/history.routes');
 
 function createApp() {
   const app = express();
+  const clientDistDir = path.resolve(__dirname, '..', '..', 'client', 'dist');
+  const clientIndexHtml = path.join(clientDistDir, 'index.html');
 
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
   app.disable('x-powered-by');
@@ -31,6 +34,22 @@ function createApp() {
   app.use(createQuizzesRouter({ auth }));
   app.use(createSessionsRouter({ auth }));
   app.use(createHistoryRouter({ auth }));
+
+  if (fs.existsSync(clientIndexHtml)) {
+    app.use(express.static(clientDistDir));
+    app.get(/.*/, (req, res, next) => {
+      if (
+        req.path.startsWith('/api') ||
+        req.path.startsWith('/uploads') ||
+        req.path.startsWith('/socket.io')
+      ) {
+        next();
+        return;
+      }
+
+      res.sendFile(clientIndexHtml);
+    });
+  }
 
   app.use((error, _, res, __) => {
     console.error(error);

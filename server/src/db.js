@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
+const { DATA_DIR } = require('./config');
 
 let db;
 
@@ -10,11 +11,10 @@ async function initDatabase() {
     return db;
   }
 
-  const dataDir = path.join(__dirname, '..', 'data');
-  fs.mkdirSync(dataDir, { recursive: true });
+  fs.mkdirSync(DATA_DIR, { recursive: true });
 
   db = await open({
-    filename: path.join(dataDir, 'quiz.sqlite'),
+    filename: path.join(DATA_DIR, 'quiz.sqlite'),
     driver: sqlite3.Database,
   });
 
