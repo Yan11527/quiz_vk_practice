@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build outputs
+client/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+!client/.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Runtime data
+server/data/*.sqlite
+!server/data/.gitkeep
+server/uploads/*
+!server/uploads/.gitkeep
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
