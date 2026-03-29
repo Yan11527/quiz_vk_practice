@@ -1,0 +1,47 @@
+@media (max-width: 900px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  .main-layout {
+    padding: 14px;
+  }
+
+  .live-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .winner-modal {
+    --spark-distance: 170px;
+  }
+
+  .form-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .option-row {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-form {
+    flex-direction: column;
+  }
+
+  .inline-form input {
+    max-width: none;
+  }
+
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-stats {
+    grid-template-columns: 1fr;
+  }
+}

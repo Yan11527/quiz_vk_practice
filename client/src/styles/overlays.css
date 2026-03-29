@@ -1,0 +1,163 @@
+.toast-viewport {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2000;
+  display: grid;
+  gap: 10px;
+  width: min(360px, calc(100vw - 24px));
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(18, 35, 66, 0.18);
+  padding: 12px 12px 10px;
+  animation: toast-in 0.24s ease forwards;
+}
+
+.toast p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.toast button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.toast-success {
+  border-color: #96d5ba;
+  background: #f0faf5;
+  color: #12603e;
+}
+
+.toast-info {
+  border-color: #9fc2ff;
+  background: #eef4ff;
+  color: #1a4697;
+}
+
+.toast-warning {
+  border-color: #f0c185;
+  background: #fff6ea;
+  color: #7a4f10;
+}
+
+.toast-error {
+  border-color: #e6a3a3;
+  background: #fff1f1;
+  color: #8b1e1e;
+}
+
+.toast-closing {
+  animation: toast-out 0.22s ease forwards;
+}
+
+.winner-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2300;
+  background: rgba(16, 24, 41, 0.56);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  animation: winner-fade-in 0.24s ease;
+}
+
+.winner-modal {
+  position: relative;
+  --spark-distance: 250px;
+  width: min(560px, 100%);
+  border-radius: 22px;
+  border: 1px solid #f0d6aa;
+  background: linear-gradient(160deg, #fffaf0, #fff4df);
+  box-shadow: 0 24px 60px rgba(5, 16, 43, 0.35);
+  padding: 30px 24px 24px;
+  display: grid;
+  gap: 10px;
+  overflow: visible;
+  animation: winner-pop 0.36s cubic-bezier(0.21, 1, 0.31, 1);
+}
+
+.winner-modal h2 {
+  margin: 0;
+}
+
+.winner-text,
+.winner-score {
+  margin: 0;
+}
+
+.winner-score {
+  color: var(--muted);
+}
+
+.winner-modal .button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.leaderboard-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  background: rgba(16, 24, 41, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.leaderboard-modal {
+  width: min(760px, 100%);
+  max-height: 88vh;
+  overflow: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: 0 22px 55px rgba(14, 24, 44, 0.28);
+  padding: 18px;
+}
+
+.winner-fireworks {
+  position: absolute;
+  inset: -120px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.winner-burst {
+  position: absolute;
+  left: var(--burst-x);
+  top: var(--burst-y);
+}
+
+.winner-burst span {
+  --angle: calc(var(--i) * 25.714deg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: hsl(calc(var(--i) * 20), 88%, 55%);
+  box-shadow: 0 0 10px currentColor;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(0.68);
+  opacity: 0;
+  animation: winner-spark 1.7s ease-out infinite;
+  animation-delay: calc(var(--burst-delay) + var(--i) * 0.045s);
+}

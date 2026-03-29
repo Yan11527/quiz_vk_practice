@@ -1,0 +1,120 @@
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+}
+
+@keyframes winner-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes winner-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes winner-spark {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(0.52);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--spark-distance)) scale(0.1);
+  }
+}
+
+@keyframes bg-chaos-left {
+  0% {
+    transform: translate3d(-2vw, -2vh, 0) scale(1);
+  }
+  12% {
+    transform: translate3d(38vw, 14vh, 0) scale(1.08);
+  }
+  27% {
+    transform: translate3d(71vw, 45vh, 0) scale(0.94);
+  }
+  39% {
+    transform: translate3d(16vw, 76vh, 0) scale(1.06);
+  }
+  55% {
+    transform: translate3d(63vw, 63vh, 0) scale(0.98);
+  }
+  71% {
+    transform: translate3d(-8vw, 34vh, 0) scale(1.1);
+  }
+  86% {
+    transform: translate3d(47vw, -6vh, 0) scale(0.95);
+  }
+  100% {
+    transform: translate3d(-3vw, 20vh, 0) scale(1.02);
+  }
+}
+
+@keyframes bg-chaos-right {
+  0% {
+    transform: translate3d(4vw, -4vh, 0) scale(1);
+  }
+  14% {
+    transform: translate3d(-42vw, 22vh, 0) scale(1.07);
+  }
+  26% {
+    transform: translate3d(-77vw, 4vh, 0) scale(0.93);
+  }
+  43% {
+    transform: translate3d(-11vw, 68vh, 0) scale(1.08);
+  }
+  59% {
+    transform: translate3d(-74vw, 74vh, 0) scale(0.97);
+  }
+  76% {
+    transform: translate3d(-22vw, 33vh, 0) scale(1.1);
+  }
+  89% {
+    transform: translate3d(7vw, 8vh, 0) scale(0.96);
+  }
+  100% {
+    transform: translate3d(-6vw, 58vh, 0) scale(1.03);
+  }
+}
